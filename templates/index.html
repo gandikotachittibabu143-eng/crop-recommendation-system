@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Crop Recommendation</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- INPUT CARD -->
+<div class="card">
+<h2>🌱 AI Crop Recommendation</h2>
+
+<select id="lang" onchange="changeLanguage()">
+<option value="en">English</option>
+<option value="te">తెలుగు</option>
+<option value="hi">हिंदी</option>
+</select>
+
+<!-- 🌍 Place Input -->
+<input type="text" id="place" placeholder="Enter Location (e.g. Hyderabad)">
+<!-- 📍 GPS BUTTON -->
+<button onclick="getLocation()">📍 Use My Location</button>
+
+<hr>
+
+<!-- Manual Inputs -->
+<input type="number" id="n">
+<input type="number" id="p">
+<input type="number" id="k">
+<input type="number" id="temp">
+<input type="number" id="humidity">
+<input type="number" id="ph" step="0.1">
+<input type="number" id="rain">
+
+<button onclick="predictCrop()">Predict 🚀</button>
+
+</div>
+
+<!-- OUTPUT CARD -->
+<div class="card">
+
+<h2>📊 Results</h2>
+
+<div id="output">Waiting for input...</div>
+
+<h3>🧪 Fertilizer</h3>
+<div id="fertilizer"></div>
+
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+<script>
+window.onload = changeLanguage;
+</script>
+
+</body>
+</html>
